@@ -1,0 +1,13 @@
+# Image for running Minlog on a server with SSH access
+
+FROM trifon/minlog
+MAINTAINER Trifon Trifonov <triffon@fmi.uni-sofia.bg>
+
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN useradd -m minlog \
+    && echo "minlog:minlog" | chpasswd \
+    && echo "/usr/src/minlog/minlog \
+    && exit" >> /home/minlog/.profile
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
