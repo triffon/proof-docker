@@ -1,4 +1,4 @@
-# minlog-docker
+# proof-docker
 Dockerized versions of the MinLog and Coq proof assistants
 
 # To build
